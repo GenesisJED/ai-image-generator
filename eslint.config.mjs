@@ -3,23 +3,22 @@ import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import nextPlugin from "@next/eslint-plugin-next";
+import nextConfigRecommended from "@next/eslint-plugin-next/lib/configs/recommended.js";
+import reactHooksRecommended from "eslint-plugin-react-hooks/lib/configs/recommended.js";
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
+  pluginJs.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  reactHooksRecommended,
+  ...nextConfigRecommended.configs.recommended,
   {
     files: ["**/*.{js,mjs,jsx,tsx}"],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
     plugins: {
       react: pluginReact,
       "react-hooks": reactHooks,
-      "@next/next": nextPlugin, 
+      "@next/next": nextPlugin,
     },
-    extends: [
-      pluginJs.configs.recommended,
-      pluginReact.configs.flat.recommended,
-      "plugin:react-hooks/recommended",
-      "plugin:@next/next/recommended",
-    ],
     rules: {
       "no-unused-vars": "warn",
       "no-console": "warn",
@@ -27,11 +26,11 @@ export default [
       "semi": ["error", "always"],
       "eqeqeq": "error",
       "indent": ["error", 2],
-      "react/prop-types": "off", 
-      "react/react-in-jsx-scope": "off", 
-      "react-hooks/exhaustive-deps": "warn", 
-      "@next/next/no-img-element": "warn", 
-      "@next/next/no-html-link-for-pages": "error", 
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "react-hooks/exhaustive-deps": "warn",
+      "@next/next/no-img-element": "warn",
+      "@next/next/no-html-link-for-pages": "error",
     },
     settings: {
       react: {
