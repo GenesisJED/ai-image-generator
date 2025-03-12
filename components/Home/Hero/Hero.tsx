@@ -22,12 +22,9 @@ const Hero = () => {
       toast.error("Please, enter a prompt");
       return
     }
-
     setLoading(true);
-
     // Token
     const huggingFaceToken = process.env.NEXT_PUBLIC_HUGGINGFACE_API_TOKEN;
-
     try {
       // Using Stable Diffusion model from Hugging Face
       const response = await axios({
