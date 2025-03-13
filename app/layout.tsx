@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import ResponsiveNav from "@/components/Navbar/ResponsiveNav";
 import { Toaster } from "@/components/ui/sonner";
+import Footer from "@/components/Home/Footer/Footer";
 
 const font = Roboto({
   weight:['100', '300', '400', '500', '700', '900'],
@@ -26,6 +27,7 @@ export default function RootLayout({
       >
         <ResponsiveNav />
         {children}
+        <Footer />
         <Toaster />
       </body>
     </html>
