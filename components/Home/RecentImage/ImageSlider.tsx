@@ -35,7 +35,7 @@ const ImageSlider = () => {
         >
             {['r1.jpg', 'r2.jpg', 'r3.jpg', 'r4.jpg', 'r5.jpg'].map((image, index) => (
                 <div key={index} className='p-4'>
-                    <div className='h-[400px] relative'>
+                    <div className='h-[200px] md:h-[300px] relative'>
                         <Image 
                             src={`/image/${image}`} 
                             alt='image' 

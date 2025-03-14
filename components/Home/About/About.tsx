@@ -3,8 +3,8 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className='pt-16 pb-16'>
-        <div className='w-[80%] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10 items-center'>
+    <div id="about" className='pt-20 pb-20 md:pt-50 md:pb-50'>
+        <div className='w-[100%] md:w-[80%] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10 items-center'>
             {/* Image */}
             <div className='order-2 xl:order-1'>
                 <Image 

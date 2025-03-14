@@ -66,7 +66,7 @@ const Hero = () => {
   }
 
   return (
-    <div className="w-[95%] min-h-screen relative mx-auto mt-[20vh]">
+    <div className="w-[100%] mb-30 md:mb-50 relative mx-auto mt-[20vh]">
       <div className="relative z-10 text-white flex flex-col items-center justify-center">
         <h1
           className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold 
@@ -125,14 +125,14 @@ const Hero = () => {
           </div>
         )}
         {image && !loading && (
-          <div className="mt-0 md:mt-8 flex flex-col items-center">
+          <div className="mt-5 md:mt-8 flex flex-col items-center">
             <img
               src={image || "/placeholder.svg"}
               alt="AI generated image"
-              className="max-w-full h-[500px] rounded-lg shadow-lg object-contain"
+              className="max-w-full rounded-lg shadow-lg object-contain"
               loading="lazy"
             />
-            <Button onClick={handleDownloadImage} className="mt-0 md:mt-4 mb-0 md:mb-8 bg-pink-500 hover:bg-pink-800 cursor-pointer">
+            <Button onClick={handleDownloadImage} className="mt-5 md:mt-8 mb-5 md:mb-8 bg-pink-500 hover:bg-pink-800 cursor-pointer">
               Download
             </Button>
           </div>

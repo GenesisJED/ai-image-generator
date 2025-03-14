@@ -20,6 +20,7 @@ const MobileNav = ({closeNav, showNav}:Props) => {
                     <Link
                         key={link.id}
                         href={link.url}
+                        onClick={closeNav}
                     >
                         <p className="text-white w-fit text-xl ml-12 border-b-[1.5px] pb-1 
                     border-white sm:text-[30px]">
@@ -37,4 +38,4 @@ const MobileNav = ({closeNav, showNav}:Props) => {
     );
 };
 
-export default MobileNav
+export default MobileNav;

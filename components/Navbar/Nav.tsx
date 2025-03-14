@@ -1,6 +1,6 @@
 'use client';
 import { NavLinks } from '@/constant/constant';
-import { MenuIcon, Search, ShoppingCart } from 'lucide-react';
+import { MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
@@ -31,7 +31,7 @@ const Nav = ({openNav}:Props) => {
         transition-all duration-200`}>
             {/*Logo*/}
             <h1 className='text-3xl text-white font-bold ml-8 md:ml-16'>ImageAI</h1>
-            <div className='md:flex items-center space-x-10 hidden'>
+            <div className='md:flex items-center space-x-10 ml-auto hidden'>
                 {/*NavLink*/}
                 {NavLinks.map((link) => (
                     <Link
@@ -45,8 +45,6 @@ const Nav = ({openNav}:Props) => {
             </div>
             {/*Buttons and Icons*/}
             <div className='flex items-center space-x-5 md:space-x-8 text-white mr-8 md:mr-16'>
-                <ShoppingCart className='cursor-pointer w-6 h-6' />
-                <Search className='cursor-pointer w-6 h-6' />
                 <MenuIcon 
                     onClick={openNav} 
                     className='cursor-pointer w-6 h-6 md:hidden' 

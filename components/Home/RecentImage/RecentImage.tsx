@@ -4,10 +4,10 @@ import ImageSlider from './ImageSlider';
 
 const RecentImage = () => {
   return (
-    <div className='pt-16 pb-16 bg-slate-950'>
+    <div id="images" className='pt-5 md:pt-16 pb-5 md:pb-16 bg-slate-950'>
         <SectionHeading heading='Explore Newly Generated Images' />
         {/* Slider */}
-        <div className='w-[90%] md:w-[80%] mx-auto mt-16'>
+        <div className='w-[100%] md:w-[80%] mx-auto mt-5 md:mt-16'>
           <ImageSlider />
         </div>
     </div>
