@@ -20,22 +20,19 @@ const Hero = () => {
   const handleImageGeneration = async () => {
     if (!prompt.trim()) {
       toast.error("Please, enter a prompt");
-      return
+      return;
     }
     setLoading(true);
-    // Token
-    const huggingFaceToken = process.env.NEXT_PUBLIC_HUGGINGFACE_API_TOKEN;
     try {
-      // Using Stable Diffusion model from Hugging Face
+      // Call our internal API route (avoids CORS issues)
       const response = await axios({
         method: "POST",
-        url: "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5",
+        url: "/api/generate-image",
         headers: {
-          Authorization: `Bearer ${huggingFaceToken}`,
           "Content-Type": "application/json",
         },
         data: {
-          inputs: prompt,
+          prompt,
         },
         responseType: "arraybuffer",
       });
@@ -51,7 +48,7 @@ const Hero = () => {
     } finally {
       setLoading(false);
     }
-  } 
+  }
 
   const handleDownloadImage = () => {
     if (!image) return
