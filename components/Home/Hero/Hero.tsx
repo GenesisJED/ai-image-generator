@@ -99,17 +99,11 @@ const Hero = () => {
         {/*Tags*/}
         <div className="flex justify-center mt-6 space-x-4 flex-wrap gap-2">
           <p>Popular Tags: </p>
-          <Button variant={"secondary"} onClick={() => setPrompt("Creative colorful abstract art")}>
-            Creative
-          </Button>
           <Button variant={"secondary"} onClick={() => setPrompt("Hyperrealistic landscape photography")}>
             Hyperreality
           </Button>
           <Button variant={"secondary"} onClick={() => setPrompt("Steampunk city with airships")}>
             Steampunk
-          </Button>
-          <Button variant={"secondary"} onClick={() => setPrompt("3D animated character in vibrant colors")}>
-            Animation
           </Button>
           <Button variant={"secondary"} onClick={() => setPrompt("Professional business meeting in modern office")}>
             Business
