@@ -8,29 +8,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Prompt is required" }, { status: 400 });
     }
 
-    const token = process.env.HUGGINGFACE_API_TOKEN;
+    const url = new URL("https://image.pollinations.ai/prompt/" + encodeURIComponent(prompt.trim()));
+    url.searchParams.set("width", "1024");
+    url.searchParams.set("height", "1024");
+    url.searchParams.set("model", "flux");
+    url.searchParams.set("nologo", "true");
 
-    if (!token) {
-      return NextResponse.json({ error: "API token not configured" }, { status: 500 });
-    }
-
-    const response = await fetch(
-      "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ inputs: prompt }),
-      }
-    );
+    const response = await fetch(url.toString(), {
+      method: "GET",
+    });
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error("HuggingFace API error:", response.status, errorText);
+      console.error("Pollinations API error:", response.status, errorText);
       return NextResponse.json(
-        { error: `HuggingFace API error: ${response.status}` },
+        { error: `Image generation API error: ${response.status}` },
         { status: response.status }
       );
     }
